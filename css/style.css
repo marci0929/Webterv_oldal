@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.25;
+
+    /*Ideiglenes*/
+    color: white;
+    vertical-align: middle;
+    text-transform: capitalize;
+    font-weight: bold;
+    line-break: anywhere;
+}
+
+header {
+    border-bottom: thick solid orange;
+    background-color: black;
+    text-align: center;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+body {
+    background-color: white;
+    line-height: 1.25;
+}
+
+nav {
+    background-color: grey;
+    overflow: no-display;
+}
+
+nav > ul {
+    list-style: none;
+}
+
+nav > ul > li {
+    border: 1px solid orange;
+}
+
+nav > ul > li:hover {
+    color: deeppink;
+    background-color: white;
+    transition: 0.3s;
+}
+
+section {
+    display: block;
+    padding: 20px; margin: 1em 1em 2em 1em;
+    border: 1px solid #696969;
+    border-radius: 5px;
+    background-color: hsla(255, 0%, 75%, 0.1);
+    color: hsla(0,0%,0%,0.85);
+}
+
+h1,h2,h3 {
+    font-family: "Roboto Light", sans-serif;
+    font-style: normal;
+    text-transform: capitalize;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: bolder;
+}
+
+p {
+    font-weight: normal;
+    font-style: normal;
+    text-overflow: clip;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+}
+
+.flex-item {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 5pt;
+    color: #f8f8ff;
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.grow-2 {
+    flex-grow: 2;
+}
+
+#body_main {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+#navbar-top {
+    background-color: #141414;
+    box-shadow: 0 10px 10px darkgrey;
+    overflow: no-display;
+}
+
+#navbar-logo-box {
+    width: 20%;
+    float: left;
+    padding: 5pt 0; margin: 5pt;
+    border: 1px solid orange;
+    background-color: grey;
+}
+
+#navbar-menu {
+    float: left;
+    margin: 5pt 0 5pt 5pt;
+    width: 40%;
+}
+
+@media screen and (max-width: 300px) {
+    .flex-container {
+        display: none;
+    }
+}
