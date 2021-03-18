@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
-    display: block;
 }
 
 title {
@@ -69,6 +68,8 @@ aside, section {
     color: hsla(0,0%,0%,0.85);
 }
 
+
+
 aside {
     float: right;
 }
@@ -110,9 +111,21 @@ p {
     width: 100%;
 }
 
-table, th, td {
-  border: 1px solid black;
+table{
+     border: 1px solid black;
   border-collapse: collapse;
+}
+th{
+	border: 1px solid black;
+  border-collapse: collapse;
+  font-size:23px;
+}
+
+td{
+	border: 1px solid black;
+  border-collapse: collapse;
+  padding:20px;
+  text-align:center;
 }
 
 .flex-item {
