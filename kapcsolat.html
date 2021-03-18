@@ -54,14 +54,14 @@
                 <p>Villány szőlőbirtokainak tövében</p>
         </section>
 		
-        <section style="height: 600px;">
+        <section>
            <h1 style="text-align: center"><b>Töltsd ki ezt az űrlapot, így is üzenhetsz nekünk!</b></h1>
             <div style="margin-left:30%;margin-top:50px;">
 			<form>
 			<label for="name">Teljes név:</label><br>
 			<input type="text" id="name" name="name" style="margin-bottom:10px"><br>
 			<label for="kor">Életkor:</label><br>
-			<input type="text" id="kor" name="kor" style="margin-bottom:10px"><br>
+			<input type="number" id="kor" name="kor" style="margin-bottom:10px"><br>
 			
 			<p>Válaszd ki a nemed!</p>
 			<input type="radio" id="f" name="nem" value="ferfi">
@@ -79,6 +79,21 @@
 	<option value="Egyéb">
   </datalist>
   </p>
+  
+  <p>Milyen borokat ittál eddig?</p>
+  <input type="checkbox" id="bor1" name="bor1" value="v">
+  <label for="bor1">Vöröset</label><br>
+  <input type="checkbox" id="bor2" name="bor2" value="f">
+  <label for="bor2">Fehéret</label><br>
+  <input type="checkbox" id="bor3" name="bor3" value="r">
+  <label for="bor3">Rozét</label>
+  <p></p>
+  <p>Ide írhatod amit üzenni szeretnél:</p>
+  <textarea name="uzi" rows="10" cols="30">
+Üzenet helye
+</textarea>
+  
+  
   <br>
 			<input type="submit" value="Küldés" style="margin-top:30px">
 			</form>
