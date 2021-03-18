@@ -56,7 +56,7 @@
 		
         <section>
            <h1 style="text-align: center"><b>Töltsd ki ezt az űrlapot, így is üzenhetsz nekünk!</b></h1>
-            <div style="margin-left:30%;margin-top:50px;">
+            <div style="margin-left:40%;margin-top:50px;">
 			<form>
 			<label for="name">Teljes név:</label><br>
 			<input type="text" id="name" name="name" style="margin-bottom:10px"><br>
@@ -81,13 +81,22 @@
   </p>
   
   <p>Milyen borokat ittál eddig?</p>
-  <button type="button" onclick="alert('Sötét piros volt? Akkor vörösbor. Átlátszó világos volt? Akkor fehérbor. Átlátszó piros volt? Akkor rozé.')">Segítség a borok típusának meghatározásában</button><br><p></p>
+  <button type="button" onclick="alert('Sötét piros volt? Akkor vörösbor.\nÁtlátszó világos volt? Akkor fehérbor.\nÁtlátszó piros volt? Akkor rozé.')">Segítség a borok típusának meghatározásában</button><br><p></p>
   <input type="checkbox" id="bor1" name="bor1" value="v">
   <label for="bor1">Vöröset</label><br>
   <input type="checkbox" id="bor2" name="bor2" value="f">
   <label for="bor2">Fehéret</label><br>
   <input type="checkbox" id="bor3" name="bor3" value="r">
   <label for="bor3">Rozét</label>
+  <p></p>
+  
+  <fieldset style="width:100px">
+    <legend>Kedvenc borom</legend>
+    <label for="faj">Fajta:</label><br>
+    <input type="text" id="csav" name="faj" value="Cabernet Sauvignon"><br>
+    <label for="bsza">Borászat:</label><br>
+    <input type="text" id="bsza" name="bsza" value="Takler"><br><br>
+  </fieldset>
   <p></p>
   <p>Ide írhatod amit üzenni szeretnél:</p>
   <textarea name="uzi" rows="10" cols="30">Üzenet helye</textarea>
