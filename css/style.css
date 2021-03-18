@@ -79,7 +79,9 @@ footer {
 h1,h2,h3 {
     font-family: "Roboto Light", sans-serif;
     font-style: normal;
+	/*
     text-transform: capitalize;
+	*/
     text-shadow: 3px 2px 5px #a9a9a9;
     line-height: 1.5;
 }

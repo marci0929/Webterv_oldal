@@ -44,19 +44,61 @@
     </div>
     <!--Teszt-->
     <div style="margin-top: 2em;">
-        <aside class="width-40 height-50" >
-            Aside
-        </aside>
+	<img src="./img/borasz.jpg" alt="Borász embör" height="330px" style="float:right;vertical-align:top;margin-right:200px;">
         <section class="width-55">
-            <p style="text-align: center"><b>Section 1</b></p>
-                <h1>Header 1</h1>
-                <h2>Header 2</h2>
-                <h3>Header 3</h3>
-                <p>Paragraph</p>
+            <h1 style="text-align: center"><b>Miben segíthetünk?</b></h1>
+                <h2>Elérhetőségeink</h2>
+                <p>email:boraszvagyok@bor.hu</p>
+				<p>tel.:+55 555 555</p>
+				<h2>Székhelyünk</h2>
+                <p>Villány szőlőbirtokainak tövében</p>
         </section>
-        <section style="height: 600px;">
-            <p style="text-align: center"><b>Section 2</b></p>
-            <h1>Header 1</h1>
+		
+        <section>
+           <h1 style="text-align: center"><b>Töltsd ki ezt az űrlapot, így is üzenhetsz nekünk!</b></h1>
+            <div style="margin-left:30%;margin-top:50px;">
+			<form>
+			<label for="name">Teljes név:</label><br>
+			<input type="text" id="name" name="name" style="margin-bottom:10px"><br>
+			<label for="kor">Életkor:</label><br>
+			<input type="number" id="kor" name="kor" style="margin-bottom:10px"><br>
+			
+			<p>Válaszd ki a nemed!</p>
+			<input type="radio" id="f" name="nem" value="ferfi">
+  <label for="ferfi">Férfi</label><br>
+ <input type="radio" id="n" name="nem" value="no">
+  <label for="no">Nő</label><br>
+  <p style="margin-top:10px">Mivel kapcsolatban szeretnél nekünk írni?
+  <input list="mirol">
+  <datalist id="mirol">
+    <option value="Megjegyzés a weboldalhoz">
+    <option value="Borokkal kapcsolatban">
+    <option value="Borok beszerzésével kapcsolatban">
+    <option value="Szőlőkkel kapcsolatban">
+    <option value="Csak mert unatkozom">
+	<option value="Egyéb">
+  </datalist>
+  </p>
+  
+  <p>Milyen borokat ittál eddig?</p>
+  <input type="checkbox" id="bor1" name="bor1" value="v">
+  <label for="bor1">Vöröset</label><br>
+  <input type="checkbox" id="bor2" name="bor2" value="f">
+  <label for="bor2">Fehéret</label><br>
+  <input type="checkbox" id="bor3" name="bor3" value="r">
+  <label for="bor3">Rozét</label>
+  <p></p>
+  <p>Ide írhatod amit üzenni szeretnél:</p>
+  <textarea name="uzi" rows="10" cols="30">
+Üzenet helye
+</textarea>
+  
+  
+  <br>
+			<input type="submit" value="Küldés" style="margin-top:30px">
+			</form>
+			
+			</div>
         </section>
         <footer>
             <hr id="footer-line" />
