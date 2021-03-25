@@ -29,10 +29,6 @@ body {
     line-height: 1.25;
 }
 
-#active_menu {
-	background:#44F87D; 
-	color:black
-}
 
 nav {
     height: inherit;
@@ -76,11 +72,21 @@ h1,h2,h3 {
 }
 
 h1 {
+    outline: darkorange;
+    outline-style: dashed;
+    outline-offset: -5px;
+    outline-width: 5px;
+
     display: block;
-    padding: 5px; margin-bottom: 10px;
+    box-shadow: 2px 2px 5px #141414;
+    padding: 5px; margin-bottom: 50px;
     font-weight: bolder;
     text-align: center;
     background-color: orange;
+}
+
+h1::selection {
+    background-color: white;
 }
 
 p {
@@ -100,16 +106,26 @@ p {
 }
 
 
-.flex-container {
+ul[class="flex-container"] {
     display: flex;
     flex-flow: row;
     height: 100%;
     width: 100%;
 }
 
-.tablazat {
+table[class="tablazat"] {
+    border: 1px solid black;
     border-collapse: collapse;
     background-color: azure;
+}
+
+.tablazat tr:nth-of-type(even) {
+    background-color: lightcyan;
+}
+
+img[src="./img/borasz.jpg"] {
+    border: 3px solid black;
+    border-radius: 5px;
 }
 
 a {
@@ -117,9 +133,17 @@ a {
     text-decoration:none;
 }
 
-table {
-    border: 1px solid black;
-    border-collapse: collapse;
+em {
+    color: red;
+    font-style: italic;
+    font-weight: normal;
+    font-size: large;
+    margin: 0 5px;
+}
+
+strong {
+    font-weight: bolder;
+    background-color: hsla(0, 0%, 75%, 1);
 }
 
 th {
@@ -155,6 +179,11 @@ td {
     float: left;
     width: 40%; height: 50px;
     vertical-align: center;
+}
+
+#active_menu {
+    background:#44F87D;
+    color:black
 }
 
 #footer-line {
