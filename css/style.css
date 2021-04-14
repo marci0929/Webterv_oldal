@@ -96,6 +96,16 @@ p {
 	margin-bottom: 20px;
 }
 
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
 .flex-item {
     display: flex;
     height: 50px;

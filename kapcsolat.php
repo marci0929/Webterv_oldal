@@ -1,3 +1,14 @@
+<?php
+
+require_once('php/KapcsolatValidator.php');
+
+if (isset($_POST['submit'])) {
+    $validator = new KapcsolatValidator($_POST);
+    $errors = $validator->validate();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -17,30 +28,8 @@
 		</span>
     </header>
     <div id="navbar-top">
-        <div id="navbar-menu">
-            <nav>
-                <ul class="flex-container">
-                    <li class="flex-item grow-1">
-                        <a href="index.html">Kezdőlap</a>
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="bor_fajtak.html">Borok fajtái</a>
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="szolok.html">Szőlők fajtái</a>
-
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="jo_borok.html">Hol kaphatok jó borokat?</a>
-
-                    </li>
-                    <li class="flex-item grow-2" id="active_menu">
-                        <a href="kapcsolat.html">Kapcsolat</a>
-
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <?php $currentPage = 'Kapcsolat';
+        include_once("php/include/nav.php"); ?>
     </div>
     <div style="margin-top: 2em;">
         <img src="./img/borasz.jpg" alt="Borász embör" height="330"
@@ -68,19 +57,37 @@
                 </ol>
             </div>
             <div style="margin-left:20%;margin-top:50px;float:left;display:inline">
-                <form>
+                <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+
                     <label for="name">Teljes név:</label><br>
-                    <input type="text" id="name" name="name" style="margin-bottom:10px"><br>
+                    <input type="text" id="name" name="name" style="margin-bottom:10px"
+                           value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>"><br>
+                    <div>
+                        <p class="error"><?php echo isset($errors['name']) ? $errors['name'] : '' ?></p>
+                    </div>
+
                     <label for="kor">Életkor:</label><br>
-                    <input type="number" id="kor" name="kor" style="margin-bottom:10px"><br>
+                    <input type="number" id="kor" name="kor" style="margin-bottom:10px"
+                           value="<?php if (isset($_POST['kor'])) echo $_POST['kor']; ?>"><br>
+                    <div>
+                        <p class="error"><?php echo isset($errors['kor']) ? $errors['kor'] : '' ?></p>
+                    </div>
 
                     <p>Válaszd ki a nemed!</p>
-                    <input type="radio" id="ferfi" name="nem" value="ferfi">
+
+                    <input type="radio" id="ferfi" name="nem"
+                           value="F" <?php if (isset($_POST['nem']) && $_POST['nem'] === 'F') echo 'checked'; ?>>
                     <label for="ferfi">Férfi</label><br>
-                    <input type="radio" id="no" name="nem" value="no">
+
+                    <input type="radio" id="no" name="nem"
+                           value="N" <?php if (isset($_POST['nem']) && $_POST['nem'] === 'N') echo 'checked'; ?>>
                     <label for="no">Nő</label><br>
+                    <div>
+                        <p class="error"><?php echo isset($errors['nem']) ? $errors['nem'] : '' ?></p>
+                    </div>
+
                     <p style="margin-top:10px">Mivel kapcsolatban szeretnél nekünk írni?
-                        <input list="mirol">
+                        <input name="mirol" list="mirol">
                         <datalist id="mirol">
                             <option value="Megjegyzés a weboldalhoz">
                             <option value="Borokkal kapcsolatban">
@@ -89,6 +96,9 @@
                             <option value="Csak mert unatkozom">
                             <option value="Egyéb">
                         </datalist>
+                    <div>
+                        <p class="error"><?php echo isset($errors['mirol']) ? $errors['mirol'] : '' ?></p>
+                    </div>
                     </p>
 
                     <p>Milyen borokat ittál eddig?</p>
@@ -98,44 +108,48 @@
                     </button>
                     <br>
                     <p></p>
-                    <input type="checkbox" id="bor1" name="bor1" value="v">
+                    <input type="checkbox" id="bor1" name="borok[]"
+                           value="v" <?php if (isset($_POST['borok']) && in_array("v", $_POST['borok'])) echo 'checked'; ?>>
                     <label for="bor1">Vöröset</label><br>
-                    <input type="checkbox" id="bor2" name="bor2" value="f">
+                    <input type="checkbox" id="bor2" name="borok[]"
+                           value="f" <?php if (isset($_POST['borok']) && in_array("f", $_POST['borok'])) echo 'checked'; ?>>
                     <label for="bor2">Fehéret</label><br>
-                    <input type="checkbox" id="bor3" name="bor3" value="r">
+                    <input type="checkbox" id="bor3" name="borok[]"
+                           value="r" <?php if (isset($_POST['borok']) && in_array("r", $_POST['borok'])) echo 'checked'; ?>>
                     <label for="bor3">Rozét</label>
+                    <div>
+                        <p class="error"><?php echo isset($errors['borok[]']) ? $errors['borok[]'] : '' ?></p>
+                    </div>
                     <p></p>
 
                     <fieldset style="width:100px">
                         <legend>Kedvenc borom</legend>
                         <label for="faj">Fajta:</label><br>
-                        <input type="text" id="faj" name="faj" value="Cabernet Sauvignon"><br>
+                        <input type="text" id="faj" name="faj" placeholder="Cabernet Sauvignon"
+                               value="<?php if (isset($_POST['faj'])) echo $_POST['faj']; ?>"><br>
                         <label for="bsza">Borászat:</label><br>
-                        <input type="text" id="bsza" name="bsza" value="Takler"><br><br>
+                        <input type="text" id="bsza" name="bsza" placeholder="Takler"
+                               value="<?php if (isset($_POST['bsza'])) echo $_POST['bsza']; ?>"><br><br>
                     </fieldset>
+                    <p style="font-style: italic">*Opcionális</p>
                     <p></p>
                     <p>Ide írhatod amit üzenni szeretnél:</p>
-                    <textarea name="uzi" rows="10" cols="30" placeholder="Üzenet helye"></textarea>
-
+                    <textarea name="uzi" rows="10" cols="30"
+                              placeholder="Üzenet helye"><?php if (isset($_POST['uzi'])) echo $_POST['uzi']; ?></textarea>
+                    <div>
+                        <p class="error"><?php echo isset($errors['uzi']) ? $errors['uzi'] : '' ?></p>
+                    </div>
                     <br>
-                    <input type="submit" value="Küldés" style="margin-top:30px">
-                    <input type="reset" value="Visszaállítás">
+                    <div>
+                        <p class="success"><?php echo isset($errors) && sizeof($errors) == 0 ? 'Üzenet elküldve! Hamarosan válaszolunk.' : '' ?></p>
+                    </div>
+                    <input name="submit" type="submit" value="Küldés" style="margin-top:30px">
+                    <input name="reset" type="reset" value="Visszaállítás">
                 </form>
 
             </div>
         </section>
-        <footer>
-            <hr id="footer-line"/>
-            <div id="footer-github">
-                <a href="https://github.com/marci0929/Webterv_oldal">
-                    <img src="img/github-light.png" alt="Github">
-                </a>
-            </div>
-            <div id="footer-description">
-                <p>Készítette:<br/>
-                    Csinos Richárd<br/>Sajti Martin</p>
-            </div>
-        </footer>
+        <?php include_once("php/include/footer.php"); ?>
     </div>
 </div>
 </body>

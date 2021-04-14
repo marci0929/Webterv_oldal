@@ -17,30 +17,7 @@
 		</span>
     </header>
     <div id="navbar-top">
-        <div id="navbar-menu">
-            <nav>
-                <ul class="flex-container">
-                    <li class="flex-item grow-1">
-                        <a href="index.html">Kezdőlap</a>
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="bor_fajtak.html">Borok fajtái</a>
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="szolok.html">Szőlők fajtái</a>
-
-                    </li>
-                    <li class="flex-item grow-1" id="active_menu">
-                        <a href="jo_borok.html">Hol kaphatok jó borokat?</a>
-
-                    </li>
-                    <li class="flex-item grow-2">
-                        <a href="kapcsolat.html">Kapcsolat</a>
-
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <?php $currentPage='Jobor'; include_once("php/include/nav.php"); ?>
     </div>
     <div style="margin-top: 2em;">
         <aside>
@@ -65,22 +42,12 @@
                 társulásaiból áll.</p>
             <h2>Villányi borvidék</h2>
             <p>A Villányi borvidék (korábban Villány–Siklósi borvidék) úttörő szerepet játszott a magyar borászat
-                újjászületésében. <strong>Magyarország egyik legfejlettebb bortermő vidéke ez.</strong> Sikerét egyesek a nagyüzemi
+                újjászületésében. <strong>Magyarország egyik legfejlettebb bortermő vidéke ez.</strong> Sikerét egyesek
+                a nagyüzemi
                 termelés alatt összeszokott kiváló szakembereknek,
                 mások az idetelepült svábok kitartásának tulajdonítják. </p>
         </section>
-        <footer>
-            <hr id="footer-line"/>
-            <div id="footer-github">
-                <a href="https://github.com/marci0929/Webterv_oldal">
-                    <img src="img/github-light.png" alt="Github">
-                </a>
-            </div>
-            <div id="footer-description">
-                <p>Készítette:<br/>
-                    Csinos Richárd<br/>Sajti Martin</p>
-            </div>
-        </footer>
+        <?php include_once("php/include/footer.php"); ?>
     </div>
 </div>
 </body>

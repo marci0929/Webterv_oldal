@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php $currentPage="Szolok"; ?>
 <html lang="hu">
 <head>
     <meta charset="utf-8">
@@ -17,30 +18,7 @@
 		</span>
     </header>
     <div id="navbar-top">
-        <div id="navbar-menu">
-            <nav>
-                <ul class="flex-container">
-                    <li class="flex-item grow-1">
-                        <a href="index.html">Kezdőlap</a>
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="bor_fajtak.html">Borok fajtái</a>
-                    </li>
-                    <li class="flex-item grow-1" id="active_menu">
-                        <a href="szolok.html">Szőlők fajtái</a>
-
-                    </li>
-                    <li class="flex-item grow-1">
-                        <a href="jo_borok.html">Hol kaphatok jó borokat?</a>
-
-                    </li>
-                    <li class="flex-item grow-2">
-                        <a href="kapcsolat.html">Kapcsolat</a>
-
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <?php $currentPage='Szolok'; include_once("php/include/nav.php"); ?>
     </div>
     <div style="margin-top: 2em;">
         <section>
@@ -49,7 +27,8 @@
             <p>Talán nem meglepő dolog, ha azt mondjuk, a bor szőlőből készül (jobb esetben). Az viszont nem mindegy,
                 hogy milyen szőlőből! Itt találsz néhány népszerű, bortermő szőlőt.</p>
             <h3>Borvidékeket</h3>
-            <blockquote>„A Villányi borvidék napsütötte lankáin...”</blockquote><p> - áll a címkén. Mit is jelent ez pontosan? Egy kicsit többet
+            <blockquote>„A Villányi borvidék napsütötte lankáin...”</blockquote>
+            <p> - áll a címkén. Mit is jelent ez pontosan? Egy kicsit többet
                 annál, amit elsőre gondolnánk...</p>
         </section>
         <section>
@@ -193,18 +172,7 @@
             </article>
 
         </section>
-        <footer>
-            <hr id="footer-line"/>
-            <div id="footer-github">
-                <a href="https://github.com/marci0929/Webterv_oldal">
-                    <img src="img/github-light.png" alt="Github">
-                </a>
-            </div>
-            <div id="footer-description">
-                <p>Készítette:<br/>
-                    Csinos Richárd<br/>Sajti Martin</p>
-            </div>
-        </footer>
+        <?php include_once("php/include/footer.php"); ?>
     </div>
 </div>
 </body>
