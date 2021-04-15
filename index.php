@@ -16,9 +16,8 @@
 		Minden ami bor.
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage='Kezdolap'; include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Kezdolap';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <aside class="width-40">
             <b>Petőfi Sándor</b>
@@ -53,7 +52,8 @@
         <section>
             <h1 style="text-align: center">Miért jöttünk létre?</h1>
 
-            <p>A különböző borok fogyasztása <em>rengeteg ember</em> számára okoz örömet, rengetegen szeretik a bort. A borok
+            <p>A különböző borok fogyasztása <em>rengeteg ember</em> számára okoz örömet, rengetegen szeretik a bort. A
+                borok
                 népszerűségének számos különböző oka van, ezek közül fogunk néhányat bemutatni.</p>
 
             <h3>A bor készítésének öröme</h3>
@@ -63,7 +63,8 @@
                 borok további előnyeit is élvezni tudják.</p>
 
             <h3>Ízletesebb lesz tőle az étel</h3>
-            <p>A borokat <em>nem csak</em> a szomj oltására lehet alkalmazni, hanem kiváló kiegészítést jelentenek különböző
+            <p>A borokat <em>nem csak</em> a szomj oltására lehet alkalmazni, hanem kiváló kiegészítést jelentenek
+                különböző
                 ételek mellé is. Nem is kell a legdrágább borokat vásárolni étkezéshez, hanem csak arra kell
                 odafigyelni, hogy milyen ízvilághoz milyen bor a legelőnyösebb.</p>
 

@@ -27,10 +27,8 @@ if (isset($_POST['submit'])) {
 		Lépj velünk kapcsolatba!
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage = 'Kapcsolat';
-        include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Kapcsolat';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <img src="./img/borasz.jpg" alt="Borász embör" height="330"
              style="float:right;vertical-align:top;margin-right:120px;">

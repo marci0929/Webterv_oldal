@@ -16,9 +16,8 @@
 		Oké, hol kapok finom bort?!
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage='Jobor'; include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Jobor';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <aside>
             <iframe src="https://www.google.com/maps/d/embed?mid=1WuvfOU_Mq4RpTpba-odWoXrWSjf1hL4Z" width="640"

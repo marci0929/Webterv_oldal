@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php $currentPage="Szolok"; ?>
+<?php $currentPage = "Szolok"; ?>
 <html lang="hu">
 <head>
     <meta charset="utf-8">
@@ -17,9 +17,8 @@
 		Miből készül a bor?
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage='Szolok'; include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Szolok';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Mit találsz itt?</h1>
