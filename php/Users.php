@@ -1,21 +1,21 @@
 <?php
-class Users{
+class Users {
 
-  private static $users = [];
+  private $users = [];
   
 
   function addUser($user){
-    array_push($users, $user);
+    array_push($this->users, $user);
     $this->writeUsersToFile();
   }    
 
-  function getNumberOfUsers():int{
-    return count($users);
+  function getNumberOfUsers() : int {
+    return count($this->users);
   }
 
   function writeUsersToFile(){
-    $userlist = fopen("php/userlist.txt", "w")
-    foreach ($users as $user) {
+    $userlist = fopen("php/userlist.txt", "w");
+    foreach ($this->users as $user) {
         fwrite($userlist, $user->getNev);
         fwrite($userlist, ' ');
         fwrite($userlist, $user->getPassword);

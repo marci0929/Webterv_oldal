@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    $currentPage = 'Borfajtak';
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,8 +21,7 @@
 		Milyen borok is vannak?
 		</span>
     </header>
-    <?php $currentPage = 'Borfajtak';
-    include_once("php/include/nav.php"); ?>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Mit találsz itt?</h1>

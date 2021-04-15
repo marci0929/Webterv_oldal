@@ -1,8 +1,10 @@
 <?php
+    session_start();
+    $currentPage = 'Kapcsolat';
 
-require_once('php/KapcsolatValidator.php');
+    require_once('php/KapcsolatValidator.php');
 
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
     $validator = new KapcsolatValidator($_POST);
     $errors = $validator->validate();
 }
@@ -27,8 +29,7 @@ if (isset($_POST['submit'])) {
 		Lépj velünk kapcsolatba!
 		</span>
     </header>
-    <?php $currentPage = 'Kapcsolat';
-    include_once("php/include/nav.php"); ?>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <img src="./img/borasz.jpg" alt="Borász embör" height="330"
              style="float:right;vertical-align:top;margin-right:120px;">

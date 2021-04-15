@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $currentPage = 'Jobor';
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,8 +20,7 @@
 		Oké, hol kapok finom bort?!
 		</span>
     </header>
-    <?php $currentPage = 'Jobor';
-    include_once("php/include/nav.php"); ?>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <aside>
             <iframe src="https://www.google.com/maps/d/embed?mid=1WuvfOU_Mq4RpTpba-odWoXrWSjf1hL4Z" width="640"

@@ -2,7 +2,7 @@
 class RegistrationChecker{
 
   private $data;
-  private static $fields = ['username', 'email', 'eletkor', 'jelszo1', 'jelszo2'];
+  private static $fields = ['username', 'email', 'eletkor', 'password1', 'password2'];
   private $errors = [];
 
     public function __construct($kapcsolatData)
@@ -33,7 +33,7 @@ class RegistrationChecker{
         $val = trim($this->data['username']);
 
         if (empty($val)) {
-            $this->addError('username', 'Felhasználónév megadása kötelező!');
+            $this->addError('username','Felhasználónév megadása kötelező!');
         } else {
             if (!preg_match('/^[A-Za-z0-9]+([A-Za-z0-9]+)$/', $val)) {
                 $this->addError('username', 'Helytelen formátum! (csak kis és nagybetűket, valamint számot tartalmazhat)');
@@ -41,12 +41,23 @@ class RegistrationChecker{
         }
     }
 
+    private function validatePassword() {
+        $pw1 = $this->data['password1'];
+        $pw2 = $this->data['password2'];
+
+        if (empty($pw1) || empty($pw2)) {
+            $this->addError('password2','Mind a két mező kitöltése kötelező!');
+        } else if($pw1 == $pw2) {
+            $this->addError('password2','A jelszavak nem egyeznek!');
+        }
+    }
+
     private function validateKor()
     {
-        $val = $this->data['kor'];
+        $val = $this->data['eletkor'];
 
         if (empty($val)) {
-            $this->addError('kor', 'Az életkor megadása kötelező!');
+            $this->addError('eletkor','Az életkor megadása kötelező!');
             return;
         }
 
@@ -58,7 +69,7 @@ class RegistrationChecker{
         );
 
         if (!filter_var($val, FILTER_VALIDATE_INT, $options))
-            $this->addError('kor', '16 éves kor alatt nem regisztrálhatsz!');
+            $this->addError('eletkor', '16 éves kor alatt nem regisztrálhatsz!');
     }
 
     private function validateEmail()
@@ -86,6 +97,10 @@ class RegistrationChecker{
          Users->addUser($ujFelhasznalo);
     }
 
+    private function addError($key, $value)
+    {
+        $this->errors[$key] = '* ' . $value;
+    }
     
 
 }

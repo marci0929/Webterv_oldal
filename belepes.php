@@ -1,5 +1,13 @@
 <?php
+session_start();
+$currentPage = 'Belepes';
 
+require_once('php/LoginValidator.php');
+
+if (isset($_POST['login'])) {
+    $loginValidator = new LoginValidator($_POST);
+    $errors = $loginValidator->validate();
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,37 +28,35 @@
 		Itt tudsz belépni felhasználói fiókodba.
 		</span>
     </header>
-    <?php $currentPage = 'Belepes';
-    include_once("php/include/nav.php"); ?>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Itt tudsz bejelentkezni már meglévő fiókodba, vagy regisztrálni!</h1>
 
+            <form style="text-align: left;margin-left: 40%" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+                <div class="input-group">
+                    <label>Felhasználónév</label><br>
+
+                    <input type="text" name="username"
+                           value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
+                    <p class="error"><?php echo isset($errors['username']) ? $errors['username'] : '' ?></p>
+
+                </div>
+                <div class="input-group">
+                    <label>Jelszó</label><br>
+
+                    <input type="password" name="password"
+                           value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
+                    <p class="error"><?php echo isset($errors['password']) ? $errors['password'] : '' ?></p>
+                </div>
+                <div class="input-group">
+                    <button type="submit" class="btn" name="login">Belépés</button>
+                    <span class="success"><?php echo isset($errors) && empty($errors) ? 'Sikeres belépés!' : '' ?></span>
+                </div>
+            </form>
+
             <section class="width-55">
-
-                <form style="text-align: left;margin-left: 40%" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-                    <div class="input-group">
-                      <label>Felhasználónév</label><br>
-                 
-                      <input type="text" name="username" value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
-                  
-                        <p class="error"><?php echo isset($errors['username']) ? $errors['username'] : '' ?></p>
-
-                    </div>
-                
-                    <div class="input-group">
-                      <label>Jelszó</label><br>
-                   
-                      <input type="password" name="password" value="<?php if (isset($_POST['password'])) echo $_POST['password']; ?>">
-                        <p class="error"><?php echo isset($errors['password']) ? $errors['password'] : '' ?></p>
-                    </div>
-                
-                    <div class="input-group">
-                      <button type="submit" class="btn" name="belepes">Belépés</button>
-                    </div>
-                </form>
-                <p></p>
-                <p style="text-align: center">Ha nincs még fiókod, <a href="regisztracio.php"><strong>ide</strong></a>
+                <p style="text-align: center;">Ha nincs még fiókod, <a href="regisztracio.php"><em>ide</em></a>
                     kattintva tudsz regisztrálni</p>
 
             </section>

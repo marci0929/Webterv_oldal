@@ -1,5 +1,5 @@
 <?php
-class Users{
+class Users {
 	private $nev;
 	private $profilKep;
 	private $email;

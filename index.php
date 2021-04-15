@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    $currentPage = 'Kezdolap';
+?>
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -16,8 +20,7 @@
 		Minden ami bor.
 		</span>
     </header>
-    <?php $currentPage = 'Kezdolap';
-    include_once("php/include/nav.php"); ?>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <aside class="width-40">
             <b>Petőfi Sándor</b>

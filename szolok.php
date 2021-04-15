@@ -1,5 +1,8 @@
+<?php
+    session_start();
+    $currentPage = "Szolok";
+?>
 <!DOCTYPE html>
-<?php $currentPage = "Szolok"; ?>
 <html lang="hu">
 <head>
     <meta charset="utf-8">
