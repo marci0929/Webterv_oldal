@@ -3,6 +3,7 @@ class RegistrationChecker{
 
   private $data;
   private static $fields = ['username', 'email', 'eletkor', 'jelszo1', 'jelszo2'];
+  private $errors = [];
 
     public function __construct($kapcsolatData)
     {
@@ -22,6 +23,7 @@ class RegistrationChecker{
         $this->validatePassword();
         $this->validateKor();
         $this->validateEmail();
+        $this->makeRegistration();
         return $this->errors;
     }
 
@@ -70,6 +72,18 @@ class RegistrationChecker{
                 $this->addError('email', 'Helytelen formátum! (valós email címet adj meg!)');
             }
         }
+    }
+
+    private function makeRegistration(){
+        
+        if(empty($_FILES)){
+            $val = fopen("./img/alapProfilkep.jpg", "r") or die("Unable to open file!");
+        }
+        else{
+            $val = $this->data['profilkep'];
+        }
+         $ujFelhasznalo = new User(data['username'], data['email'], $val, data['password1']);
+         Users->addUser($ujFelhasznalo);
     }
 
     

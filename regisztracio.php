@@ -52,20 +52,26 @@ if (isset($_POST['submit'])) {
                     <label>Életkorod (ha nem múltál el 16 éves, nem regisztrálhatsz)</label><br>
                     
                     <input type="number" name="eletkor" value="<?php if (isset($_POST['eletkor'])) echo $_POST['eletkor']; ?>">
-                <p class="error"><?php echo isset($errors['eletkor']) ? $errors['eletkor'] : '' ?></p>
+                     <p class="error"><?php echo isset($errors['eletkor']) ? $errors['eletkor'] : '' ?></p>
                   </div>
                 	<div class="input-group">
                 	  <label>Jelszó</label><br>
                    
                 	  <input type="password" name="password1" value="<?php if (isset($_POST['password1'])) echo $_POST['password1']; ?>">
-             <p class="error"><?php echo isset($errors['password1']) ? $errors['password1'] : '' ?></p>
+                      <p class="error"><?php echo isset($errors['password1']) ? $errors['password1'] : '' ?></p>
                 	</div>
                 	<div class="input-group">
                 	  <label>Ismételd meg a jelszót</label><br>
                  
                 	  <input type="password" name="password2" value="<?php if (isset($_POST['password2'])) echo $_POST['password2']; ?>">
-                <p class="error"><?php echo isset($errors['password2']) ? $errors['password2'] : '' ?></p>
+                      <p class="error"><?php echo isset($errors['password2']) ? $errors['password2'] : '' ?></p>
                 	</div>
+                  <div class="input-group">
+                    <label>Feltölthetsz egy profilképet is</label><br>
+                 
+                    <input type="file" name="profilkep" value="<?php if (isset($_POST['profilkep'])) echo $_POST['profilkep']; ?>">
+                      <p class="error"><?php echo isset($errors['profilkep']) ? $errors['profilkep'] : '' ?></p>
+                  </div>
                 	<div class="input-group">
                 	  <button type="submit" class="btn" name="regisztralas">Regisztráció</button>
                 	</div>
