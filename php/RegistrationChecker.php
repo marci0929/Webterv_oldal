@@ -1,4 +1,8 @@
 <?php
+
+require('php/User.php');
+require('php/Users.php');
+
 class RegistrationChecker{
 
   private $data;
@@ -93,8 +97,8 @@ class RegistrationChecker{
         else{
             $val = $this->data['profilkep'];
         }
-         $ujFelhasznalo = new User(data['username'], data['email'], $val, data['password1']);
-         Users->addUser($ujFelhasznalo);
+         $ujFelhasznalo = new User($this->data['username'], $this->data['email'], $val, $this->data['password1']);
+         Users::addUser($ujFelhasznalo);
     }
 
     private function addError($key, $value)
