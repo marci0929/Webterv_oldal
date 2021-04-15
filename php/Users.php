@@ -14,14 +14,15 @@ class Users{
   }
 
   function writeUsersToFile(){
-    $userlist = fopen("php/userlist.txt", "w")
+    $userlist = fopen("php/userlist.txt", "w");
+    serialize($userlist);
     foreach ($users as $user) {
         fwrite($userlist, $user->getNev);
         fwrite($userlist, ' ');
         fwrite($userlist, $user->getPassword);
         fwrite($userlist, '\r\n');
     }
-
+    unserialize($userlist);
     fclose($userlist);
   }
 
