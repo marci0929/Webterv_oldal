@@ -16,9 +16,8 @@
 		Milyen borok is vannak?
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage = 'Borfajtak'; include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Borfajtak';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Mit találsz itt?</h1>
@@ -79,7 +78,8 @@
                         <p style="font-size:20px"><strong>Gere Kopár</strong></p>
                         <p>
                             A Gere Kopár a pincészet emblematikus csúcsbora. Csak a legszebb évjáratokban készül <u>Villány
-                            legjobb dűlőiből</u> (Kopár, Csillagvölgy, Konkoly) szelektált alapanyagok felhasználásával.
+                                legjobb dűlőiből</u> (Kopár, Csillagvölgy, Konkoly) szelektált alapanyagok
+                            felhasználásával.
                             A mély, sötét színárnyalatok a megszokott koncentrációról árulkodnak. Illatában már most
                             nagyon sokrétű; pörkölési aromák, fahéj, fekete szeder, cseresznye, érett meggy, pici
                             borsosság, szegfűszeg, vanília, minerális jegyek. Ízében is kellőképp összetett. A
@@ -111,7 +111,7 @@
                             Kortyolj bele a villányi borok hercegnőjének kikiáltott Sauska Rosé ízébe! Különleges
                             stílusa teszi különlegesen elegáns rozévá, hiszen már színében is néhány árnyalattal
                             visszafogottabb, azonban pirosribizlis illata és íze mindenért kárpótol!<u> Minden túlzás
-                            nélkül állíthatjuk, hogy a Sauska Rozé az egyik legszebb és legfinomabb rozénk.</u>
+                                nélkül állíthatjuk, hogy a Sauska Rozé az egyik legszebb és legfinomabb rozénk.</u>
                             Ajándéknak is kifejezetten jó döntés!
                         </p>
                     </td>

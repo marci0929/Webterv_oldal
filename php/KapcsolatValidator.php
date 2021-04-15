@@ -6,7 +6,8 @@ class KapcsolatValidator
     private $data;
     private $errors = [];
     private static $fields = ['name', 'kor', 'mirol', 'bsza', 'faj', 'uzi'];
-    const MSG_LEN = 255;
+    const MSG_MAX = 255;
+    const MSG_MIN = 25;
 
     public function __construct($kapcsolatData)
     {
@@ -90,8 +91,13 @@ class KapcsolatValidator
 
     private function validateUzi()
     {
-        if (strlen($this->data['uzi']) >= self::MSG_LEN) {
-            $this->addError('uzi', 'Maximum ' . self::MSG_LEN . ' karakter hosszú lehet az üzenet!');
+        $uzi = $this->data['uzi'];
+
+        if (strlen($uzi) <= self::MSG_MIN) {
+            $this->addError('uzi','Minimum ' . self::MSG_MIN . ' karaktert írj be!');
+        }
+        else if (strlen($uzi) >= self::MSG_MAX) {
+            $this->addError('uzi', 'Maximum ' . self::MSG_MAX . ' karakter hosszú lehet az üzenet!');
         }
     }
 

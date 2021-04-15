@@ -21,18 +21,17 @@
 		Itt tudsz belépni felhasználói fiókodba.
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php $currentPage = 'Belepes';
-        include_once("php/include/nav.php"); ?>
-    </div>
+    <?php $currentPage = 'Belepes';
+    include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Itt tudsz bejelentkezni már meglévő fiókodba, vagy regisztrálni!</h1>
-			
-			<section class="width-55">
-			<p style="text-align: center">Ha nincs még fiókod, <a href="regisztracio.php"><strong>ide</strong></a> kattintva tudsz regisztrálni</p>
-		
-			</section>
+
+            <section class="width-55">
+                <p style="text-align: center">Ha nincs még fiókod, <a href="regisztracio.php"><strong>ide</strong></a>
+                    kattintva tudsz regisztrálni</p>
+
+            </section>
         </section>
         <?php include_once("php/include/footer.php"); ?>
     </div>
