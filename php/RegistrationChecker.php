@@ -51,7 +51,7 @@ class RegistrationChecker{
 
         if (empty($pw1) || empty($pw2)) {
             $this->addError('password2','Mind a két mező kitöltése kötelező!');
-        } else if($pw1 == $pw2) {
+        } else if($pw1 !== $pw2) {
             $this->addError('password2','A jelszavak nem egyeznek!');
         }
     }

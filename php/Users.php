@@ -17,9 +17,9 @@ class Users {
   static function writeUsersToFile(){
     $userlist = fopen("php/userlist.txt", "w");
     foreach (self::$users as $user) {
-        fwrite($userlist, $user->getNev);
+        fwrite($userlist, $user->getNev());
         fwrite($userlist, ' ');
-        fwrite($userlist, $user->getPassword);
+        fwrite($userlist, $user->getPassword());
         fwrite($userlist, '\r\n');
     }
 
