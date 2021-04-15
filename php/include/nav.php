@@ -23,6 +23,11 @@
                 <?php echo isset($currentPage) && ($currentPage == 'Kapcsolat') ? " id= active_menu" : ""; ?>>
                 <a href="kapcsolat.php">Kapcsolat</a>
             </li>
+			<li class="flex-item grow-2"
+                <?php echo isset($currentPage) && ($currentPage == 'Belepes') ? " id= active_menu" : ""; ?>>
+                <a href="belepes.php">Bejelentkezés</a>
+            </li>
+			
         </ul>
     </nav>
 </div>
