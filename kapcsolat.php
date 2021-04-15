@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         <section style="width:50%">
             <h1 style="text-align: center">Miben segíthetünk?</h1>
             <h2>Elérhetőségeink</h2>
-            <p>email:boraszvagyok@bor.hu</p>
+            <p>email:borasz@bor.hu</p>
             <p>tel.:+55 555 555</p>
             <h2>Székhelyünk</h2>
             <p>Villány szőlőbirtokainak tövében</p>

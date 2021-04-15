@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Itt tudsz regisztrálni egy új fiókot!</h1>
-                <form style="text-align: center" method="post" action="regisztracio.php">
+                <form style="text-align: left;margin-left: 40%" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                 	<div class="input-group">
                 	  <label>Felhasználónév (kis és nagybetűket, valamit számokat tartalmazhat)</label><br>
                  
@@ -45,25 +45,25 @@ if (isset($_POST['submit'])) {
                 	<div class="input-group">
                 	  <label>Email cím</label><br>
                     
-                	  <input type="email" name="email" value="">
+                	  <input type="email" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
                   <p class="error"><?php echo isset($errors['email']) ? $errors['email'] : '' ?></p>
                 	</div>
                   <div class="input-group">
                     <label>Életkorod (ha nem múltál el 16 éves, nem regisztrálhatsz)</label><br>
                     
-                    <input type="number" name="eletkor">
-                <p class="error"><?php echo isset($errors['kor']) ? $errors['kor'] : '' ?></p>
+                    <input type="number" name="eletkor" value="<?php if (isset($_POST['eletkor'])) echo $_POST['eletkor']; ?>">
+                <p class="error"><?php echo isset($errors['eletkor']) ? $errors['eletkor'] : '' ?></p>
                   </div>
                 	<div class="input-group">
                 	  <label>Jelszó</label><br>
                    
-                	  <input type="password" name="password_1">
+                	  <input type="password" name="password1" value="<?php if (isset($_POST['password1'])) echo $_POST['password1']; ?>">
              <p class="error"><?php echo isset($errors['password1']) ? $errors['password1'] : '' ?></p>
                 	</div>
                 	<div class="input-group">
                 	  <label>Ismételd meg a jelszót</label><br>
                  
-                	  <input type="password" name="password_2">
+                	  <input type="password" name="password2" value="<?php if (isset($_POST['password2'])) echo $_POST['password2']; ?>">
                 <p class="error"><?php echo isset($errors['password2']) ? $errors['password2'] : '' ?></p>
                 	</div>
                 	<div class="input-group">
