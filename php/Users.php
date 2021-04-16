@@ -7,7 +7,7 @@ class Users
 
     static function addUser($user)
     {
-        $file = fopen("php/userlist.txt", "w");
+        $file = fopen("php/userlist.txt", "a");
         fprintf($file,serialize($user->getNev()) . "\n");
         fprintf($file,serialize($user->getPassword()) . "\n");
         fprintf($file,serialize($user->getEmail()) . "\n");
