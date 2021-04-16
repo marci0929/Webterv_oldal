@@ -1,48 +1,64 @@
 <?php
 
+require_once('php/Validator.php');
+require_once('php/Users.php');
+require_once('php/User.php');
 
-class LoginValidator
+/**
+ * Login űrlapot validáló osztály.
+ */
+final class LoginValidator extends Validator
 {
-    private $data;
-    private $errors = [];
-    private static $fields = ['username','password'];
+    protected static $fields = ['username', 'password'];
+    private $user = null;
 
-    public function __construct($loginData)
+    public function validate()
     {
-        $this->data = $loginData;
-    }
-
-    public function validate() {
-        foreach (self::$fields as $field) {
-            if (!array_key_exists($field, $this->data)) {
-                trigger_error("$field mező nem található!");
-                die();
-            }
-        }
-
+        $this->checkFields();
         $this->validateUserName();
         $this->validatePassword();
         return $this->errors;
     }
 
-    private function validateUserName() {
+    private function validateUserName()
+    {
         $val = trim($this->data['username']);
 
         if (empty($val)) {
-            $this->addError('username','A felhasználónév megadása kötelező!');
+            $this->addError('username', 'A felhasználónév megadása kötelező!');
+            return;
         }
+
+        if (empty($this->data['password'])) return;
+
+        foreach (Users::getUsers() as $user) {
+            if ($user instanceof User && $user->getNev() == $val) {
+                $this->user = $user;
+                return;
+            }
+        }
+
+        $this->addError('username','Hibás felhasználónév!');
     }
 
-    private function validatePassword() {
+    private
+    function validatePassword()
+    {
         $val = $this->data['password'];
 
         if (empty($val)) {
-            $this->addError('password','A jelszó megadása kötelező!');
+            $this->addError('password', 'A jelszó megadása kötelező!');
+            return;
         }
-    }
 
-    private function addError($key, $value)
-    {
-        $this->errors[$key] = '* ' . $value;
+        if (empty($this->data['username'])) return;
+
+        if (isset($this->user)) {
+            if ($this->user->getPassword() === $val) {
+                return;
+            }
+        }
+
+        $this->addError('password', 'Hibás jelszó!');
     }
- }
+}

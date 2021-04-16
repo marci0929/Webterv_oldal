@@ -1,28 +1,20 @@
 <?php
 
+require_once('php/Validator.php');
 
-class KapcsolatValidator
+/**
+ * Kapcsolatok űrlapot validáló osztály.
+ */
+final class KapcsolatValidator extends Validator
 {
-    private $data;
-    private $errors = [];
-    private static $fields = ['name', 'kor', 'mirol', 'bsza', 'faj', 'uzi'];
-    const MSG_MAX = 255;
-    const MSG_MIN = 25;
+    protected static $fields = ['name', 'kor', 'mirol', 'bsza', 'faj', 'uzi'];
 
-    public function __construct($kapcsolatData)
-    {
-        $this->data = $kapcsolatData;
-    }
+    const MSG_MIN = 25; const MSG_MAX = 255;
+    const KOR_MIN = 7;  const KOR_MAX = 99;
 
     public function validate()
     {
-        foreach (self::$fields as $field) {
-            if (!array_key_exists($field, $this->data)) {
-                trigger_error("$field mező nem található!");
-                die();
-            }
-        }
-
+        $this->checkFields();
         $this->validateName();
         $this->validateKor();
         $this->validateNem();
@@ -56,8 +48,8 @@ class KapcsolatValidator
 
         $options = array(
             'options' => array(
-                'min_range' => 7,
-                "max_range" => 99
+                'min_range' => self::KOR_MIN,
+                "max_range" => self::KOR_MAX
             )
         );
 
@@ -94,15 +86,9 @@ class KapcsolatValidator
         $uzi = $this->data['uzi'];
 
         if (strlen($uzi) <= self::MSG_MIN) {
-            $this->addError('uzi','Minimum ' . self::MSG_MIN . ' karaktert írj be!');
-        }
-        else if (strlen($uzi) >= self::MSG_MAX) {
+            $this->addError('uzi', 'Minimum ' . self::MSG_MIN . ' karaktert írj be!');
+        } else if (strlen($uzi) >= self::MSG_MAX) {
             $this->addError('uzi', 'Maximum ' . self::MSG_MAX . ' karakter hosszú lehet az üzenet!');
         }
-    }
-
-    private function addError($key, $value)
-    {
-        $this->errors[$key] = '* ' . $value;
     }
 }
