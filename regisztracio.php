@@ -15,7 +15,7 @@ if (isset($_POST['regisztralas'])) {
 <html lang="hu">
 <head>
     <meta charset="utf-8">
-    <title>BorÁSZ-Kezdőlap</title>
+    <title>BorÁSZ-rRegisztráció</title>
 
     <!-- Egyedi font import -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
