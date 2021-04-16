@@ -29,7 +29,10 @@ final class RegistrationChecker extends Validator
             $this->addError('username', 'Felhasználónév megadása kötelező!');
         } else {
             if (!preg_match('/^[A-Za-z0-9]+([A-Za-z0-9]+)$/', $val)) {
-                $this->addError('username', 'Helytelen formátum! (csak kis és nagybetűket, valamint számot tartalmazhat)');
+                $this->addError('username', 'Helytelen formátum! (csak kis és nagybetűket, valamint számot tartalmazhat, minimum hossz: 2)');
+            }
+            if(Users::isUsernameAlreadySet($val)){
+                $this->addError('username', 'A felhasználónév már foglalt!');
             }
         }
     }
