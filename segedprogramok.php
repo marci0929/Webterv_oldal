@@ -177,7 +177,7 @@ $currentPage = 'Segedprogramok';
                     }
                     ?>
 
-                    <form method="get" action="<?php $_PHP_SELF ?>">  
+                    <form method="get" action="<?php $_SERVER["PHP_SELF"]?>">
                       Ide írhatod a betűket!<br>
                       <textarea type="text" name="string" cols="20" rows="10" value=""></textarea>
                       <br><br>
