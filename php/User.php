@@ -3,15 +3,13 @@
 class User
 {
     private $nev;
-    private $profilKep;
     private $email;
     private $jelszo;
 
-    function __construct($nev, $email, $profilkep, $jelszo)
+    function __construct($nev, $email, $jelszo)
     {
         $this->nev = $nev;
         $this->email = $email;
-        $this->profilkep = $profilkep;
         $this->jelszo = $jelszo;
     }
 
@@ -25,10 +23,11 @@ class User
         return $this->jelszo;
     }
 
-    function setProfilkep($ujProfilkep)
+    function getEmail()
     {
-        $this->profilkep = $ujProfilkep;
+        return $this->email;
     }
+
 
 
 }

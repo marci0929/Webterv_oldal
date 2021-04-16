@@ -8,6 +8,7 @@ final class RegistrationChecker extends Validator
 {
 
     protected static $fields = ['username', 'email', 'eletkor', 'password1', 'password2'];
+    private $correctRegistration=1;
 
     public function validate()
     {
@@ -16,7 +17,10 @@ final class RegistrationChecker extends Validator
         $this->validatePassword();
         $this->validateKor();
         $this->validateEmail();
-        $this->makeRegistration();
+        if($this->correctRegistration==1){
+            $this->makeRegistration();
+            $this->correctRegistration=0;
+        }
         return $this->errors;
     }
 
@@ -33,6 +37,7 @@ final class RegistrationChecker extends Validator
             }
             if(Users::isUsernameAlreadySet($val)){
                 $this->addError('username', 'A felhasználónév már foglalt!');
+                $this->correctRegistration=0;
             }
         }
     }
@@ -84,13 +89,8 @@ final class RegistrationChecker extends Validator
 
     private function makeRegistration()
     {
-        if (empty($_FILES)) {
-            $val = fopen("./img/alapProfilkep.jpg", "r") or die("Unable to open file!");
-        } else {
-            $val = $this->data['profilkep'];
-        }
 
-        $ujFelhasznalo = new User($this->data['username'], $this->data['email'], $val, $this->data['password1']);
+        $ujFelhasznalo = new User($this->data['username'], $this->data['email'], $this->data['password1']);
         Users::addUser($ujFelhasznalo);
     }
 }

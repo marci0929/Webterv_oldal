@@ -72,13 +72,7 @@ if (isset($_POST['regisztralas'])) {
                            value="<?php if (isset($_POST['password2'])) echo $_POST['password2']; ?>">
                     <p class="error"><?php echo isset($errors['password2']) ? $errors['password2'] : '' ?></p>
                 </div>
-                <div class="input-group">
-                    <label>Feltölthetsz egy profilképet is</label><br>
-
-                    <input type="file" name="profilkep"
-                           value="<?php if (isset($_POST['profilkep'])) echo $_POST['profilkep']; ?>">
-                    <p class="error"><?php echo isset($errors['profilkep']) ? $errors['profilkep'] : '' ?></p>
-                </div>
+                
                 <div class="input-group">
                     <button type="submit" class="btn" name="regisztralas">Regisztráció</button>
                     <span class="success"><?php if
