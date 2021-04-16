@@ -7,6 +7,16 @@
     if (isset($_POST['submit'])) {
     $validator = new KapcsolatValidator($_POST);
     $errors = $validator->validate();
+
+    if (!isset($errors) || !empty($errors)) return;
+
+    $datum = new DateTime();
+    $datum->setTimezone(new DateTimeZone("Europe/Budapest"));
+
+    file_put_contents("php/messages.txt",
+        $datum->format('Y-m-d H:i:s') . ' ' . $_POST['name'] . " írta ("
+        . $_POST['kor'] . "/" . $_POST['nem'] . "): \n" . $_POST['uzi'] . "\n\n",
+        FILE_APPEND);
 }
 
 ?>

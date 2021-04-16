@@ -20,6 +20,10 @@
                     <a href="jo_borok.php">Hol kaphatok jó borokat?</a>
 
                 </li>
+                <li class="flex-item grow-1"
+                    <?php echo isset($currentPage) && ($currentPage == 'Segedprogramok') ? " id= active_menu" : ""; ?>>
+                    <a href="segedprogramok.php">Segédprogramok</a>
+                </li>
                 <li class="flex-item grow-2"
                     <?php echo isset($currentPage) && ($currentPage == 'Kapcsolat') ? " id= active_menu" : ""; ?>>
                     <a href="kapcsolat.php">Kapcsolat</a>

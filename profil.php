@@ -27,9 +27,29 @@ $currentPage = 'Profil';
     </header>
     <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
-        <section>
-            <h1 style="text-align: center">Itt tudod módosítani a fiókod beállításait!</h1>
+        <section style="height: 600px;">
+            <h1 style="text-align: center">Itt találod a profilod adatait!</h1>
 
+            <div class="float-left" style="margin-right: 50px;">
+                <img src="img/alapProfilkep.jpg" alt="Profilkép"
+                     style="border: 5px solid black; border-radius: 5px;"
+                     width="256px" height="256px">
+            </div>
+
+            <div class="float-left">
+            <h2>Felhasználói adatok:</h2>
+            <ul>
+                <li>Felhasználónév: <?php echo $_SESSION['user']['username'] ?></li>
+                <li>E-mail cím: <?php echo $_SESSION['user']['email'] ?></li>
+                <li>Jelszó: <?php echo $_SESSION['user']['password'] ?></li>
+                <li></li>
+                <li>
+                    <p style="margin-bottom: 5px;"><u>Profilkép módosítása:</u></p>
+                    <input style="margin-bottom: 5px;" type="file" id="file-upload" name="profile-pic" accept="image/*"/> <br/>
+                    <input type="submit" name="upload-btn" value="Feltöltés"/>
+                </li>
+            </ul>
+            </div>
         </section>
         <?php include_once("php/include/footer.php"); ?>
     </div>
