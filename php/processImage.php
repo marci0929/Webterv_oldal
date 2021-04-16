@@ -14,6 +14,9 @@ if (in_array($extension, EXTENSIONS)) {
     if ($_FILES['profile-pic']["error"] === 0) {
 
         if ($_FILES['profile-pic']["size"] <= MAX_SIZE) {
+            if(!is_dir("php/users/".strtolower($_SESSION['user']['username']))){
+                mkdir("php/users/".strtolower($_SESSION['user']['username']));
+            }
 
             $dest_dir = "php/users/" . strtolower($_SESSION['user']['username'] . '/' . $_FILES['profile-pic']["name"]);
             if (move_uploaded_file($_FILES['profile-pic']["tmp_name"], $dest_dir)) {
