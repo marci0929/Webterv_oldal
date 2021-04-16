@@ -118,6 +118,48 @@ $currentPage = 'Segedprogramok';
                     echo "<br>";
                     ?>
             </div>
+             <div style="margin-bottom: 20px; margin-left: 30%;">
+                <h3>Egyedi bornevek</h3>
+                <p>Mindeki szeret új neveket kitalálni boroknak. Csakhogy amikor elkap minket a hév, előfordul, hogy egy nevet kétszer is mondunk. Írd be az általad kitalált neveket, mindet új sorba, és a program visszaad egy listát, amiben minden név csak egyszer szerepel.
+                </p>
+                
+                <?php
+
+                    $egyedilista =[];
+
+                    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['listasub'])) {
+                      
+                        $egyedilista = $_POST["egyedilista"];
+                        
+                    }
+                    ?>
+
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+                      Ide írhatod a borok árát!<br>
+                      <textarea type="text" name="egyedilista" cols="20" rows="10" value="<?php echo $egyedilista;?>"></textarea>
+                      <br><br>
+                      <input type="submit" name="listasub" value="Kérem a listát!">  
+                      <br>
+                    </form>
+
+                    <?php
+                    echo "<br>";
+                    echo "Az egyedi bornevek: <br><br>";
+                    $egyedilista=explode("\r\n", $egyedilista);
+                    //string műveletek
+                    sort($egyedilista, SORT_STRING);
+                    $egyedilista=array_unique($egyedilista);
+                    if(count($egyedilista)>0){
+                        foreach ($egyedilista as $nev) {
+                            echo $nev."<br>";
+                        }
+                    }
+                    else{
+                        echo "Nincs bemenő érték!";
+                    }
+                    echo "<br>";
+                    ?>
+            </div>
         </section>
         <?php include_once("php/include/footer.php"); ?>
     </div>
