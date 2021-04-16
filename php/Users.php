@@ -3,11 +3,15 @@
 class Users
 {
 
-    private static $numOfUsers=0;
+    private static $numOfUsers = 0;
 
     static function addUser($user)
     {
-        file_put_contents("php/userlist.txt", $user->getNev() . "\r\n" . $user->getPassword() . "\r\n" . $user->getEmail() ."\r\n", FILE_APPEND);
+        $file = fopen("php/userlist.txt", "w");
+        fprintf($file,serialize($user->getNev()) . "\n");
+        fprintf($file,serialize($user->getPassword()) . "\n");
+        fprintf($file,serialize($user->getEmail()) . "\n");
+        fclose($file);
         self::$numOfUsers++;
     }
 
@@ -16,10 +20,11 @@ class Users
         return self::$numOfUsers;
     }
 
-    static function isUsernameAlreadySet($username){
-        $users=fopen("php/userlist.txt","r");
-        while(!feof($users)) {
-            if(fgets($users) == $username."\r\n"){
+    static function isUsernameAlreadySet($username)
+    {
+        $users = fopen("php/userlist.txt", "r");
+        while (!feof($users)) {
+            if (unserialize(fgets($users)) == $username . "\r\n") {
                 fclose($users);
                 return true;
             }
@@ -28,22 +33,22 @@ class Users
         return false;
     }
 
-    static function getUser($username, $jelszo) {
-        $users=fopen("php/userlist.txt","r");
-        while(!feof($users)){
-            if(fgets($users) == $username."\r\n"){
-                if(fgets($users) == $jelszo."\r\n"){
-                    return array('username' => $username, 'password' => $jelszo, 'email' => fgets($users));
-                }
-                else{
-                    fgets($users);
-                }
-            }
-            else{
-                fgets($users);
-                fgets($users);
+    static function getUser($username, $jelszo)
+    {
+        $users = fopen("php/userlist.txt", "r");
+
+        while (!feof($users)) {
+            $data = unserialize(fgets($users));
+
+            if ($data == $username) {
+                $passw = unserialize(fgets($users));
+                $email = unserialize(fgets($users));
+
+                if ($passw === $jelszo)
+                return array('username' => $username, 'password' => $passw, 'email' => $email);
             }
         }
+        fclose($users);
         return null;
     }
 
