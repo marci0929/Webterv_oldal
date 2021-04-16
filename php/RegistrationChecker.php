@@ -89,7 +89,6 @@ final class RegistrationChecker extends Validator
 
     private function makeRegistration()
     {
-
         $ujFelhasznalo = new User($this->data['username'], $this->data['email'], $this->data['password1']);
         Users::addUser($ujFelhasznalo);
     }
