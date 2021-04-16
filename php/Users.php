@@ -40,7 +40,7 @@ class Users
         while(!feof($users)){
             if(fgets($users) == $username."\r\n"){
                 if(fgets($users) == $jelszo."\r\n"){
-                    return new User($username, fgets($users), $jelszo);
+                    return array('username' => $username, 'password' => $jelszo);
                 }
                 else{
                     fgets($users);

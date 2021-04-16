@@ -13,7 +13,7 @@ if (isset($_POST['login'])) {
     if (isset($errors) && empty($errors)) {
 
         $felhasznalo = $loginValidator->getUser();
-        if ($felhasznalo == null || !$felhasznalo instanceof User) return;
+        if ($felhasznalo == null || empty($felhasznalo)) return;
 
         $_SESSION['user'] = $felhasznalo;
 

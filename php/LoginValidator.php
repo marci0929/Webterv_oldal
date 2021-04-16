@@ -56,8 +56,7 @@ final class LoginValidator extends Validator
 
     public function getUser()
     {
-        if ($this->user instanceof User) return $this->user;
-        return null;
+        return $this->user;
     }
 
 }

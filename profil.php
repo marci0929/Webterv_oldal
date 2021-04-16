@@ -22,7 +22,7 @@ $currentPage = 'Profil';
 <div id="body_main">
     <header>
         <span>
-		<?php echo ' profilja'?>
+		<?php echo $_SESSION['user']['username'] . ' profilja'?>
 		</span>
     </header>
     <?php include_once("php/include/nav.php"); ?>
