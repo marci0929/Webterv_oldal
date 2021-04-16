@@ -31,18 +31,16 @@ final class LoginValidator extends Validator
 
         if (empty($this->data['password'])) return;
 
-        foreach (Users::getUsers() as $user) {
-            if ($user instanceof User && $user->getNev() == $val) {
-                $this->user = $user;
-                return;
-            }
+        $user = Users::getUser($val,$this->data['password']);
+        if ($user != null) {
+            $this->user = $user;
+            return;
         }
 
         $this->addError('username','Hibás felhasználónév!');
     }
 
-    private
-    function validatePassword()
+    private function validatePassword()
     {
         $val = $this->data['password'];
 
@@ -51,14 +49,15 @@ final class LoginValidator extends Validator
             return;
         }
 
-        if (empty($this->data['username'])) return;
-
-        if (isset($this->user)) {
-            if ($this->user->getPassword() === $val) {
-                return;
-            }
-        }
+        if (empty($this->data['username']) || isset($this->user)) return;
 
         $this->addError('password', 'Hibás jelszó!');
     }
+
+    public function getUser()
+    {
+        if ($this->user instanceof User) return $this->user;
+        return null;
+    }
+
 }

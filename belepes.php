@@ -1,12 +1,23 @@
 <?php
 session_start();
-$currentPage = 'Belepes';
-
 require_once('php/LoginValidator.php');
+require_once('php/Users.php');
+require_once('php/User.php');
+
+$currentPage = 'Belepes';
 
 if (isset($_POST['login'])) {
     $loginValidator = new LoginValidator($_POST);
     $errors = $loginValidator->validate();
+
+    if (isset($errors) && empty($errors)) {
+
+        $felhasznalo = $loginValidator->getUser();
+        if ($felhasznalo == null || !$felhasznalo instanceof User) return;
+
+        $_SESSION['user'] = $felhasznalo;
+
+    }
 }
 ?>
 
@@ -39,7 +50,7 @@ if (isset($_POST['login'])) {
 
                     <input type="text" name="username"
                            value="<?php if (isset($_POST['username'])) echo $_POST['username']; ?>">
-                    <p class="error"><?php echo isset($errors['username']) ? $errors['username'] : '' ?></p>
+                    <p class="error"><?php echo $errors['username'] ?? '' ?></p>
 
                 </div>
                 <div class="input-group">

@@ -35,11 +35,11 @@ class Users
         return false;
     }
 
-    static function getUser($username, $jelszo) : User {
+    static function getUser($username, $jelszo) {
         $users=fopen("php/userlist.txt","r");
         while(!feof($users)){
             if(fgets($users) == $username."\r\n"){
-                if(fgets($user) == $jelszo."\r\n"){
+                if(fgets($users) == $jelszo."\r\n"){
                     return new User($username, fgets($users), $jelszo);
                 }
                 else{
