@@ -3,7 +3,6 @@
 class Users
 {
 
-    //public static $users = [];
     private static $numOfUsers=0;
 
     static function addUser($user)
@@ -16,12 +15,6 @@ class Users
     {
         return self::$numOfUsers;
     }
-/*
-    static function writeUsersToFile()
-    {
-            file_put_contents("php/userlist.txt", $user->getNev() . '\r\n' . $user->getPassword() . '\r\n' . $user->getEmail() ."\r\n", FILE_APPEND);
-    }
-    */
 
     static function isUsernameAlreadySet($username){
         $users=fopen("php/userlist.txt","r");
@@ -53,11 +46,6 @@ class Users
         }
         return null;
     }
-    /*
-    public static function getUsers(): array
-    {
-        return self::$users;
-    }
-    */
+
 
 }

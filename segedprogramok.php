@@ -135,7 +135,7 @@ $currentPage = 'Segedprogramok';
                     ?>
 
                     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-                      Ide írhatod a borok árát!<br>
+                      Ide írhatod a borok nevét!<br>
                       <textarea type="text" name="egyedilista" cols="20" rows="10" value="<?php echo $egyedilista;?>"></textarea>
                       <br><br>
                       <input type="submit" name="listasub" value="Kérem a listát!">  
@@ -155,6 +155,60 @@ $currentPage = 'Segedprogramok';
                         foreach ($egyedilista as $nev) {
                             echo $nev."<br>";
                         }
+                    }
+                    else{
+                        echo "Nincs bemenő érték!";
+                    }
+                    echo "<br>";
+                    ?>
+            </div>
+            <div style="margin-bottom: 20px; margin-left: 30%;">
+                <h3>Anagramma kereső</h3>
+                <p>
+                    Adj meg néhány betűt, én pedig megmondom, hogy melyik bortársaság nevét lehet belőle kirakni!
+                    A bemenet egy darab összefüggő betűhalmaz.
+                </p>
+                
+                <?php
+
+                    $string ="";
+                    $tarsasagok=["aeklrt"=>"Takler", "alnvyy"=>"Vylyan", "ááélmoprssz"=>"Mészáros Pál", "ooorsst"=>"Ostoros", "eegr"=>"Gere", "accdfiikllnoóöst"=>"Alföldi koccintós"];
+
+                    if (isset($_GET['stringsub'])) {
+                      
+                        $string = $_GET['string'];
+                        
+                    }
+                    ?>
+
+                    <form method="get" action="<?php $_PHP_SELF ?>">  
+                      Ide írhatod a betűket!<br>
+                      <textarea type="text" name="string" cols="20" rows="10" value=""></textarea>
+                      <br><br>
+                      <input type="submit" name="stringsub" value="Kérem a stringem!">  
+                      <br>
+                    </form>
+
+                    <?php
+                    echo "<br><br>";
+                    //string műveletek
+                    if(strlen($string)>0){
+                        $string=str_replace(' ', '', $string);
+                        $string=strtolower($string);
+                        $arr=str_split($string);
+                        sort($arr);
+                        $string=implode("", $arr);
+                        $talalat=0;
+                        foreach ($tarsasagok as $anag => $rendesnev) {
+                            if($anag == $string){
+                                echo "Ebből pont kijön az, hogy: ".$rendesnev;
+                                $talalat++;
+                            }
+                        }
+                        if($talalat==0){
+                            echo "Ebből nem jön ki egyik ismert bortársaság neve sem. :(";
+                        }
+
                     }
                     else{
                         echo "Nincs bemenő érték!";
