@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
         if ($felhasznalo == null || empty($felhasznalo)) return;
 
         $_SESSION['user'] = $felhasznalo;
+        header("Location: profil.php");
 
     }
 }
