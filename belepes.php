@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
 <html lang="hu">
 <head>
     <meta charset="utf-8">
-    <title>BorÁSZ-Kezdőlap</title>
+    <title>BorÁSZ-Bejelentkezés</title>
 
     <!-- Egyedi font import -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
