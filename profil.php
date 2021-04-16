@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('php/User.php');
+include_once('php/processImage.php');
 
 if (!isset($_SESSION['user'])) header("Location: belepes.php");
 $currentPage = 'Profil';
@@ -45,8 +46,10 @@ $currentPage = 'Profil';
                 <li></li>
                 <li>
                     <p style="margin-bottom: 5px;"><u>Profilkép módosítása:</u></p>
-                    <input style="margin-bottom: 5px;" type="file" id="file-upload" name="profile-pic" accept="image/*"/> <br/>
-                    <input type="submit" name="upload-btn" value="Feltöltés"/>
+                    <form action="profil.php" method="POST" enctype="multipart/form-data">
+                        <input style="margin-bottom: 5px;" type="file" id="file-upload" name="profile-pic" accept="image/*"/> <br/>
+                        <input type="submit" name="upload-btn" value="Feltöltés"/>
+                    </form>
                 </li>
             </ul>
             </div>
