@@ -16,11 +16,7 @@ if (isset($_POST['regisztralas'])) {
 <head>
     <meta charset="utf-8">
     <title>BorÁSZ-rRegisztráció</title>
-
-    <!-- Egyedi font import -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <?php include_once("php/include/styles.php") ?>
 </head>
 <body>
 <div id="body_main">
