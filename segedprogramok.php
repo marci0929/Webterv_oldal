@@ -145,7 +145,9 @@ $currentPage = 'Segedprogramok';
                     <?php
                     echo "<br>";
                     echo "Az egyedi bornevek: <br><br>";
+                    if(count($egyedilista)>0){
                     $egyedilista=explode("\r\n", $egyedilista);
+                }
                     //string műveletek
                     sort($egyedilista, SORT_STRING);
                     $egyedilista=array_unique($egyedilista);
