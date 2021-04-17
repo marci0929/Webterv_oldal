@@ -1,10 +1,23 @@
 <?php
 session_start();
 require_once('php/User.php');
+require_once('php/Users.php');
 include_once('php/processImage.php');
 
 if (!isset($_SESSION['user'])) header("Location: belepes.php");
 $currentPage = 'Profil';
+
+$profilkep = "img/alapProfilkep.jpg";
+$user = Users::getUser($_SESSION['user']['username'],$_SESSION['user']['password']);
+$userDir = "php/users/" . $_SESSION['user']['username'];
+
+$extensions = array("jpg", "png", "jpeg");
+foreach ($extensions as $ext) {
+    if (file_exists($userDir . "/pic." . $ext)) {
+        $profilkep = $userDir . "/pic." . $ext;
+        break;
+    }
+}
 
 ?>
 
@@ -28,7 +41,8 @@ $currentPage = 'Profil';
             <h1 style="text-align: center">Itt találod a profilod adatait!</h1>
 
             <div class="float-left" style="margin-right: 50px;">
-                <img src="img/alapProfilkep.jpg" alt="Profilkép"
+                <img src="<?php echo $profilkep ?>"
+                     alt="Profilkép"
                      style="border: 5px solid black; border-radius: 5px;"
                      width="256px" height="256px">
             </div>
