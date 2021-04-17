@@ -1,6 +1,7 @@
 <?php
 
 if (!isset($_FILES['profile-pic']) || !isset($_SESSION['user'])) return;
+if ($_FILES['profile-pic']["name"] == '') return;
 
 $extensions = array("jpg", "png", "jpeg");
 const MAX_SIZE = 16777216;
