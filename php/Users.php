@@ -8,9 +8,9 @@ class Users
     static function addUser($user)
     {
         $file = fopen("php/userlist.txt", "a");
-        fprintf($file,serialize($user->getNev()) . "\n");
-        fprintf($file,serialize($user->getPassword()) . "\n");
-        fprintf($file,serialize($user->getEmail()) . "\n");
+        fprintf($file,serialize($user->getNev()) . "\r\n");
+        fprintf($file,serialize($user->getPassword()) . "\r\n");
+        fprintf($file,serialize($user->getEmail()) . "\r\n");
         fclose($file);
         self::$numOfUsers++;
     }
@@ -24,7 +24,7 @@ class Users
     {
         $users = fopen("php/userlist.txt", "r");
         while (!feof($users)) {
-            if (unserialize(fgets($users)) == $username . "\r\n") {
+            if (unserialize(fgets($users)) == ($username)) {
                 fclose($users);
                 return true;
             }
