@@ -39,13 +39,15 @@ class Users
 
         while (!feof($users)) {
             $data = unserialize(fgets($users));
-
             if ($data == $username) {
                 $passw = unserialize(fgets($users));
                 $email = unserialize(fgets($users));
-
-                if ($passw === $jelszo)
+                if ($passw === $jelszo){
                 return array('username' => $username, 'password' => $passw, 'email' => $email);
+             }
+            }else{
+                unserialize(fgets($users));
+                unserialize(fgets($users));
             }
         }
         fclose($users);
