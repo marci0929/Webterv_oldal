@@ -1,6 +1,6 @@
 <?php
 
-class Users
+final class Users
 {
 
     private static $numOfUsers = 0;

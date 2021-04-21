@@ -8,7 +8,7 @@ final class RegistrationChecker extends Validator
 {
 
     protected static $fields = ['username', 'email', 'eletkor', 'password1', 'password2'];
-    private $correctRegistration=1;
+    private $correctRegistration = true;
 
     public function validate()
     {
@@ -17,10 +17,9 @@ final class RegistrationChecker extends Validator
         $this->validatePassword();
         $this->validateKor();
         $this->validateEmail();
-        if($this->correctRegistration==1){
-            $this->makeRegistration();
-            $this->correctRegistration=0;
-        }
+
+        if (!empty($this->errors)) $this->correctRegistration = false;
+        if ($this->correctRegistration) $this->makeRegistration();
         return $this->errors;
     }
 
@@ -37,7 +36,6 @@ final class RegistrationChecker extends Validator
             }
             if(Users::isUsernameAlreadySet($val)){
                 $this->addError('username', 'A felhasználónév már foglalt!');
-                $this->correctRegistration=0;
             }
         }
     }
