@@ -25,9 +25,7 @@ if (isset($_POST['regisztralas'])) {
 		Itt tudsz regisztrálni egy új fiókot!
 		</span>
     </header>
-    <div id="navbar-top">
-        <?php include_once("php/include/nav.php"); ?>
-    </div>
+    <?php include_once("php/include/nav.php"); ?>
     <div style="margin-top: 2em;">
         <section>
             <h1 style="text-align: center">Itt tudsz regisztrálni egy új fiókot!</h1>
@@ -68,7 +66,7 @@ if (isset($_POST['regisztralas'])) {
                            value="<?php if (isset($_POST['password2'])) echo $_POST['password2']; ?>">
                     <p class="error"><?php echo isset($errors['password2']) ? $errors['password2'] : '' ?></p>
                 </div>
-                
+
                 <div class="input-group">
                     <button type="submit" class="btn" name="regisztralas">Regisztráció</button>
                     <span class="success"><?php if
@@ -81,7 +79,6 @@ if (isset($_POST['regisztralas'])) {
                 <p>
                 <p></p>
                 Van már fiókod? <a href="belepes.php"><strong>Bejelentkezés</strong></a>
-                </p>
             </form>
         </section>
         <?php include_once("php/include/footer.php"); ?>

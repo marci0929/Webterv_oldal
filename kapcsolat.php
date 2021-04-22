@@ -94,7 +94,6 @@ if (isset($_POST['submit'])) {
                         <div>
                             <p class="error"><?php echo isset($errors['mirol']) ? $errors['mirol'] : '' ?></p>
                         </div>
-                        </p>
 
                         <p>Milyen borokat ittál eddig?</p>
                         <button type="button"

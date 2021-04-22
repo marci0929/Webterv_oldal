@@ -44,7 +44,7 @@ foreach ($extensions as $ext) {
                 <img src="<?php echo $profilkep ?>"
                      alt="Profilkép"
                      style="border: 5px solid black; border-radius: 5px;"
-                     width="256px" height="256px">
+                     width="256" height="256">
             </div>
 
             <div class="float-left">
